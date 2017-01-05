@@ -42,6 +42,10 @@ module Nps
       ballot.vote!(value, opts)
     end
 
+    def vote_multiple(values, opts = {})
+      ballot.vote_multiple!(values, opts)
+    end
+
     private
 
     # Internal: The Net Promoter Score Calculator

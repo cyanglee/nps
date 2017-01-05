@@ -10,11 +10,19 @@ module Nps
     # Public: Cast a vote with a given NPS value.
     #
     # value - The value of the vote on the NPS scale.
-    # opts - A hash of meta data associated with the vote (default: {}) 
+    # opts - A hash of meta data associated with the vote (default: {})
     def vote!(value, opts = {})
       vote = OpenStruct.new(:value => value.to_f, :options => opts)
       @votes << vote
       vote
+    end
+
+    def vote_multiple!(values, opts = {})
+      values.each do |v|
+        vote = OpenStruct.new(:value => v.to_f, :options => opts)
+        @votes << vote
+      end
+      @votes
     end
 
     # Public: Whether any votes have been cast.
