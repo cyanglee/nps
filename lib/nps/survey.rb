@@ -42,7 +42,7 @@ module Nps
       ballot.vote!(value, opts)
     end
 
-    def vote_multiple(values, opts = {})
+    def vote_multiple!(values, opts = {})
       ballot.vote_multiple!(values, opts)
     end
 
